@@ -1,6 +1,8 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import users from './users';
+import schedule from './schedule';
+import patient from './patient';
 
 const router = express.Router();
 
@@ -26,6 +28,12 @@ const middlewares = {
 router.route('/me').get(middlewares.isLoggedIn, users.me);
 // router.route('/login').post(users.login);
 router.route('/register').post(users.register);
+
+router.route('/schedule').get(middlewares.isLoggedIn, schedule.index);
+
+router.route('/schedule').post(middlewares.isLoggedIn, schedule.register);
+
+router.route('/patient').post(middlewares.isLoggedIn, patient.register);
 
 router.route('/hello').get(users.hello);
 
