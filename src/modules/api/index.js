@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import users from './users';
 import schedule from './schedule';
 import patient from './patient';
+import vaccinationCentres from './vaccination_centres';
 
 const router = express.Router();
 
@@ -34,6 +35,10 @@ router.route('/schedule').get(middlewares.isLoggedIn, schedule.index);
 router.route('/schedule').post(middlewares.isLoggedIn, schedule.register);
 
 router.route('/patient').post(middlewares.isLoggedIn, patient.register);
+
+router
+  .route('/vaccination-centres')
+  .post(middlewares.isLoggedIn, vaccinationCentres.register);
 
 router.route('/hello').get(users.hello);
 
