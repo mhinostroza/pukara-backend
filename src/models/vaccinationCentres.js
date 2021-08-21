@@ -12,8 +12,8 @@ const VaccinationCentresSchema = new Schema({
   longitude: {
     type: Number,
   },
-  isPublic: {
-    type: Boolean,
+  entity: {
+    type: String,
   },
 });
 

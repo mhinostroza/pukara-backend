@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import users from './users';
 import schedule from './schedule';
 import patient from './patient';
-import vaccinationCentres from './vaccination_centres';
+import vaccinationCentres from './vaccinationCentres';
 
 const router = express.Router();
 
