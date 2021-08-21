@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     unique: true,
     sparse: true,
   },
-  veify: {
+  verify: {
     type: String,
     require: true,
   },

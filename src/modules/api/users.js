@@ -1,9 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 import jwt from 'jsonwebtoken';
+import vision from '@google-cloud/vision';
 import User from '../../models/user';
 
 function register(req, res, next) {
-  const { document, password } = req.body;
-  const UserController = new User({ document, password });
+  const { name, document, password, verify, email, cellPhone } = req.body;
+
+  const UserController = new User({
+    name,
+    document,
+    password,
+    verify,
+    email,
+    cellPhone,
+  });
 
   UserController.save((err, user) => {
     if (err) {
@@ -16,7 +26,7 @@ function register(req, res, next) {
     }
 
     const token = jwt.sign(
-      { id: user.document, role: document.role },
+      { id: user._id, document: user.document, role: user.role },
       'SECRET'
     );
 
@@ -28,12 +38,24 @@ function register(req, res, next) {
 }
 
 function me(req, res, next) {
-  res.json({
-    success: true,
+  const { id } = req;
+
+  User.findById(id, (err, user) => {
+    res.json({ user });
   });
 }
 
-function hello(req, res, next) {
+async function hello(req, res, next) {
+  const client = new vision.ImageAnnotatorClient();
+
+  // Performs label detection on the image file
+  const [result] = await client.labelDetection(
+    'https://diariocorreo.pe/resizer/kp7KOhO_q7W8w-Y-dUvjidKZL7s=/580x330/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/QCWY5E6RMNHB7B5DMJY6NTK3XQ.jpg'
+  );
+  const labels = result.labelAnnotations;
+  console.log('Labels:');
+  labels.forEach((label) => console.log(label.description));
+
   res.json({
     success: 'Faith',
   });
