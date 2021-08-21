@@ -1,0 +1,11 @@
+{
+    "eslint.workingDirectories": ["src"],
+    "eslint.validate": ["javascript"],
+    "eslint.run": "onType",
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": true,
+    "liveServer.settings.port": 5502
+}

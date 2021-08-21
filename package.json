@@ -1,0 +1,48 @@
+{
+  "name": "pukara-api",
+  "version": "1.0.0",
+  "description": "APP social api pukara",
+  "main": "handler.js",
+  "scripts": {
+    "dev": "serverless offline",
+    "deploy": "serverless deploy"
+  },
+  "author": "Michel Hinostroza",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "4.17.1",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "http-status": "^1.5.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.13.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "serverless-http": "2.7.0",
+    "source-map-support": "0.5.19"
+  },
+  "devDependencies": {
+    "@babel/core": "7.10.5",
+    "@babel/plugin-transform-runtime": "7.10.5",
+    "@babel/preset-env": "7.10.4",
+    "babel-loader": "8.1.0",
+    "babel-plugin-source-map-support": "2.1.2",
+    "eslint": "7.31.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-prettier": "3.4.0",
+    "prettier": "2.3.2",
+    "serverless": "2.52.1",
+    "serverless-offline": "7.0.0",
+    "serverless-webpack": "5.5.1",
+    "webpack": "5.45.1",
+    "webpack-cli": "4.7.2",
+    "webpack-node-externals": "3.0.0"
+  }
+}
